@@ -53,7 +53,7 @@ class App extends React.Component {
                         ))}
                     </ul>
                 </div>
-                <Order />
+                <Order fishes={this.state.fishes} order={this.state.order} />
                 {/* eslint-disable-next-line prettier/prettier */}
                 <Inventory 
                     addFish={this.addFish}
