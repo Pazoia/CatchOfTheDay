@@ -8,7 +8,7 @@ class Order extends React.Component {
         const count = this.props.order[key];
         const isAvailable = fish && fish.status === "available";
 
-        // Make sure the fish is loaded before continuing
+        // Make sure the fish is loaded before reinstating order cart
         if (!fish) return null;
 
         if (!isAvailable) {
