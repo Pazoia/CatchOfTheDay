@@ -96,6 +96,19 @@ class App extends React.Component {
         });
     };
 
+    removeFromOrder = (key) => {
+        // 1 - Take a copy of current state
+        const orderCopy = { ...this.state.order };
+
+        // 2 - Remove item from order
+        delete orderCopy[key];
+
+        // 3 - Update state
+        this.setState({
+            order: orderCopy,
+        });
+    };
+
     render() {
         return (
             <div className="catch-of-the-day">
@@ -107,7 +120,12 @@ class App extends React.Component {
                         ))}
                     </ul>
                 </div>
-                <Order fishes={this.state.fishes} order={this.state.order} />
+                {/* eslint-disable-next-line prettier/prettier */}
+                <Order 
+                    fishes={this.state.fishes}
+                    order={this.state.order}
+                    removeFromOrder={this.removeFromOrder}
+                />
                 {/* eslint-disable-next-line prettier/prettier */}
                 <Inventory 
                     addFish={this.addFish}
